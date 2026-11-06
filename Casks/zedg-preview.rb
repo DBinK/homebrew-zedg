@@ -14,11 +14,11 @@ cask "zedg-preview" do
   desc "Zed Editor (Localized / 汉化版) - Preview"
   homepage "https://github.com/x6nux-oss/zed-globalization"
 
-  depends_on macos: ">= :ventura"
+  depends_on macos: :ventura
 
   app "ZedG.app"
 
-  postflight do
+  postflight_steps do
     system_command "/usr/bin/xattr",
                    args: ["-rd", "com.apple.quarantine", "#{appdir}/ZedG.app"]
   end
